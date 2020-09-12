@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 // import golfData from './golf.json';
 
-// const players = golfData.filter((player => player.BirthState));
+const players = golfData.filter((player => player.BirthState));
 
 class Players extends Component {
     render() {
