@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  background-color: #bbf0f3;
+  background-image: linear-gradient(315deg, #bbf0f3 0%, #f6d285 74%);
 }
 
 .App-logo {
@@ -14,16 +16,19 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  background: url("assets/header.jpg");
+  background-position: 50% 75%;
+  min-height: 250px;
   font-size: calc(10px + 2vmin);
   color: white;
+  padding: 1rem;
+  font-family: Raleway;
+  text-align: left;
+  margin-bottom: .5rem;
 }
-
+.App-header h1, h4 {
+  margin: 0;
+}
 .App-link {
   color: #61dafb;
 }
