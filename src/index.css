@@ -11,3 +11,59 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.card-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.player-card {
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  border-radius: 10px;
+  width: 200px;
+  height: 200px;
+  font-family: Raleway;
+  color: black;
+  padding: 10px;
+  margin: 10px;
+  transition: .5s ease;
+}
+.player-card:hover {
+  transition: .5s ease;
+  background: #eaeaea;
+  cursor: pointer;
+}
+.player-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+.player-details h4 {
+  padding-bottom: .5rem;
+}
+.player-details small {
+  padding-top: 2px;
+}
+.labels {
+  font-variant: small-caps;
+  font-size: 12px;
+  color: #898989;
+}
+.header {
+  background: url("assets/header.jpg");
+  background-position: 50% 75%;
+  min-height: 250px;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  padding: 1rem;
+  font-family: Raleway;
+  text-align: left;
+  margin-bottom: .5rem;
+}
+.header h1, h3, h4 {
+  margin: 0;
+}
