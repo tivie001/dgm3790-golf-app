@@ -23,7 +23,7 @@ code {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   border-radius: 10px;
   width: 200px;
-  height: 200px;
+  height: 225px;
   font-family: Raleway;
   color: black;
   padding: 10px;
@@ -64,6 +64,6 @@ code {
   text-align: left;
   margin-bottom: .5rem;
 }
-.header h1, h3, h4 {
+.header h1, h3, h4, h5 {
   margin: 0;
 }

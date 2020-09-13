@@ -6,7 +6,7 @@ import Header from "./Header";
 function App() {
   return (
     <div className="App">
-        <Header></Header>
+        <Header/>
         <div className="card-container">
             <Players/>
         </div>
