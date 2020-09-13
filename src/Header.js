@@ -1,31 +1,19 @@
-import React, { Component } from "react";
-// import golfData from './golf.json';
+import React from "react";
+import golfData from './golf.json';
 
-// const players = golfData.filter((player => player.BirthState));
+const player = golfData.filter((player => player.FirstName === "Tiger"));
+console.log(player);
 
-class Players extends Component {
-    render() {
-        return (
-            <div className="card-container">
-                {
-                    players.map(player => {
-                        return (
-                            <div className="player-card" key={player.PlayerID}>
-                                <img src={player.PhotoUrl}/>
-                                <div className="player-details">
-                                    <h4>{ player.FirstName } { player.LastName }</h4>
-                                    <small>{ player.BirthCity }, { player.BirthState }</small>
-                                    <small className="labels">Birthplace</small>
-                                    <small>{player.College ? player.College : ''}</small>
-                                    <small className="labels">College</small>
-                                </div>
-                            </div>
-                        )
-                    })
-                }
-            </div>
-        )
-    }
+function Header() {
+    return (
+        <div className="header">
+            <h1>Golf Players</h1>
+            <h3>Tyler Ivie | DGM 3790</h3>
+            <h5>My favorite golfer:</h5>
+            <img src={player[0].PhotoUrl} alt="Tiger Woods"/>
+            <h5>{ player[0].FirstName } { player[0].LastName }</h5>
+        </div>
+    )
 }
 
-export default Players;
+export default Header;

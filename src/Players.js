@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import golfData from './golf.json';
 
-const players = golfData.filter((player => player.BirthState));
+const players = golfData.filter((player => player.BirthState && player.College));
 
 class Players extends Component {
     render() {
@@ -16,7 +16,7 @@ class Players extends Component {
                                     <h4>{ player.FirstName } { player.LastName }</h4>
                                     <small>{ player.BirthCity }, { player.BirthState }</small>
                                     <small className="labels">Birthplace</small>
-                                    <small>{player.College ? player.College : ''}</small>
+                                    <small>{player.College}</small>
                                     <small className="labels">College</small>
                                 </div>
 

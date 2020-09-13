@@ -23,7 +23,7 @@ code {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   border-radius: 10px;
   width: 200px;
-  height: 200px;
+  height: 225px;
   font-family: Raleway;
   color: black;
   padding: 10px;
@@ -52,4 +52,18 @@ code {
   font-variant: small-caps;
   font-size: 12px;
   color: #898989;
+}
+.header {
+  background: url("assets/header.jpg");
+  background-position: 50% 75%;
+  min-height: 250px;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  padding: 1rem;
+  font-family: Raleway;
+  text-align: left;
+  margin-bottom: .5rem;
+}
+.header h1, h3, h4, h5 {
+  margin: 0;
 }

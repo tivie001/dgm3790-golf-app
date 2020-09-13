@@ -14,21 +14,6 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
-.App-header {
-  background: url("assets/header.jpg");
-  background-position: 50% 75%;
-  min-height: 250px;
-  font-size: calc(10px + 2vmin);
-  color: white;
-  padding: 1rem;
-  font-family: Raleway;
-  text-align: left;
-  margin-bottom: .5rem;
-}
-.App-header h1, h4 {
-  margin: 0;
-}
 .App-link {
   color: #61dafb;
 }

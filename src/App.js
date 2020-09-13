@@ -1,16 +1,12 @@
 import React from 'react';
 import './App.css';
 import Players from "./Players";
+import Header from "./Header";
 
 function App() {
   return (
     <div className="App">
-      {/*<header className="App-header">*/}
-      {/*    <h1>Golf Players</h1>*/}
-      {/*    <h4>Tyler Ivie | DGM 3790</h4>*/}
-      {/*</header>*/}
-        <h1>Golf Players</h1>
-        <h4>Tyler Ivie | DGM 3790</h4>
+        <Header/>
         <div className="card-container">
             <Players/>
         </div>
