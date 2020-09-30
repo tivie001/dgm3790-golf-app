@@ -3,6 +3,9 @@ import './App.css';
 import Players from "./Players";
 import Header from "./Header";
 import Tournaments from "./Tournaments";
+require('dotenv').config()
+
+
 
 function App() {
   return (
