@@ -1,32 +1,79 @@
-import React, { Component } from "react";
-import golfData from './golf.json';
+import React, {useState, useEffect} from "react";
+import axios from 'axios';
+import {
+    Table,
+    TableBody,
+    TableCell,
+    TableContainer,
+    TableHead,
+    TableRow
+} from "@material-ui/core";
+import { ThemeProvider, createMuiTheme} from "@material-ui/core/styles";
 
-const players = golfData.filter((player => player.BirthState && player.College));
-
-class Players extends Component {
-    render() {
-        return (
-            <div className="card-container">
-                {
-                    players.map(player => {
-                        return (
-                            <div className="player-card" key={player.PlayerID}>
-                                <img src={player.PhotoUrl}/>
-                                <div className="player-details">
-                                    <h4>{ player.FirstName } { player.LastName }</h4>
-                                    <small>{ player.BirthCity }, { player.BirthState }</small>
-                                    <small className="labels">Birthplace</small>
-                                    <small>{player.College}</small>
-                                    <small className="labels">College</small>
-                                </div>
-
-                            </div>
-                        )
-                    })
-                }
-            </div>
-        )
+function Players() {
+    const theme = createMuiTheme({
+        palette: {
+            type: "dark"
+        }
+    })
+    const [playerData, setPlayerData] = useState({
+        players: []
+    })
+    const fetchPlayerData = () => {
+        axios.get('https://api.sportsdata.io/golf/v2/json/PlayerSeasonStats/2020', {
+            params: {
+                key: process.env.REACT_APP_SPORTS_DATA_API_KEY
+            }
+        }).then(res => {
+            setPlayerData ({
+                players: res.data.filter(player => (player.WorldGolfRank <= 25) && (player.WorldGolfRank !== null) && (player.PlayerID !== 40002471))
+            })
+            console.log(res);
+        });
     }
+    useEffect(() => {
+        fetchPlayerData()
+    }, [])
+
+    return (
+        <ThemeProvider theme={theme}>
+            <div className="table-container">
+                <div>
+                    <h1 className="table-heading">2020 Leaderboard</h1>
+                    <TableContainer>
+                        <Table className="table" aria-label="simple table" variant="dark" size="small">
+                            <TableHead className="table-header">
+                                <TableRow>
+                                    <TableCell>Rank #</TableCell>
+                                    <TableCell align="left"></TableCell>
+                                    <TableCell align="left">Name</TableCell>
+                                    <TableCell align="left">Points Gained (2020)</TableCell>
+                                    <TableCell align="left">Points Lost (2020)</TableCell>
+                                    <TableCell align="left">Total Points (2020)</TableCell>
+                                </TableRow>
+                            </TableHead>
+                            <TableBody>
+                                { playerData.players.map((player) => (
+                                    <TableRow key={player.PlayerID} hover>
+                                        <TableCell component="th" scope="row">
+                                            {player.WorldGolfRank}
+                                        </TableCell>
+                                        <TableCell align="left">
+                                            <img src={`https://s3-us-west-2.amazonaws.com/static.fantasydata.com/headshots/golf/low-res/${player.PlayerID}.png`} alt={player.FirstName}/>
+                                        </TableCell>
+                                        <TableCell align="left">{player.Name}</TableCell>
+                                        <TableCell align="left">{player.PointsGained}</TableCell>
+                                        <TableCell align="left">{player.PointsLost}</TableCell>
+                                        <TableCell align="left">{player.TotalPoints}</TableCell>
+                                    </TableRow>
+                                ))}
+                            </TableBody>
+                        </Table>
+                    </TableContainer>
+                </div>
+            </div>
+        </ThemeProvider>
+    );
 }
 
 export default Players;

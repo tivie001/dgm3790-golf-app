@@ -1,18 +1,35 @@
 import React from "react";
-import golfData from './golf.json';
-
-const player = golfData.filter((player => player.FirstName === "Tiger"));
-console.log(player);
+import {
+    Typography,
+    IconButton,
+    Toolbar,
+    AppBar
+} from "@material-ui/core";
+import MenuIcon from '@material-ui/icons/Menu';
+import {createMuiTheme, ThemeProvider} from "@material-ui/core/styles";
 
 function Header() {
+    const theme = createMuiTheme({
+        palette: {
+            type: "dark"
+        }
+    })
     return (
-        <div className="header">
-            <h1>Golf Players</h1>
-            <h3>Tyler Ivie | DGM 3790</h3>
-            <h5>My favorite golfer:</h5>
-            <img src={player[0].PhotoUrl} alt="Tiger Woods"/>
-            <h5>{ player[0].FirstName } { player[0].LastName }</h5>
-        </div>
+        <ThemeProvider theme={theme}>
+            <AppBar position="static" color='inherit'>
+                <Toolbar className="toolbar-container">
+                    <IconButton edge="start" color="inherit" aria-label="menu">
+                        <MenuIcon />
+                    </IconButton>
+                    <Typography variant="h5">
+                        Golf App
+                    </Typography>
+                    <Typography variant="h6">
+                        Tyler Ivie
+                    </Typography>
+                </Toolbar>
+            </AppBar>
+        </ThemeProvider>
     )
 }
 

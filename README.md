@@ -1,7 +1,4 @@
 ## FEATURES
-1. First component: Header with background image, header text, and my favorite golfer information from JSON filtered in.
-2. Second component: List of player profile cards from a JSON file imported into the project (filtered using the filter function and ES6 arrow function)
-  - Player name
-  - Player photo
-  - Player birthplace
-  - Player college
+- Loaded golf data from the Sportsdata IO API https://sportsdata.io/. Data includes:
+    - Player leaderboard table view with player stats for the top 25 players in the world. 
+    - Card views of various course data (location, par #, total yardage, etc.) for upcoming tournaments. 
