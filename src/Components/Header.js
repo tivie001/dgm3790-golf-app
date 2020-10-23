@@ -22,7 +22,7 @@ function Header() {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h5">
-                        Golf App
+                        Music App
                     </Typography>
                     <Typography variant="h6">
                         Tyler Ivie

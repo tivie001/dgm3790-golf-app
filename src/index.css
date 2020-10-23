@@ -11,7 +11,6 @@ code {
     monospace;
 }
 .header {
-  background: url("assets/header.jpg");
   background-position: 50% 75%;
   min-height: 250px;
   font-size: calc(10px + 2vmin);
@@ -24,18 +23,80 @@ code {
 .header h1, h3, h4, h5 {
   margin: 0;
 }
+.searchBox {
+  width: 30%;
+  margin: 2rem 1rem !important;
+}
+.btn-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.search-btn {
+  height: 40px;
+}
+.no-records {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  margin: 0 auto;
+  color: #FFFFFF;
+}
+.album-container {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+}
 
+.album-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .3s ease;
+  background-color: #424242;
+}
+
+.table-row:hover .overlay {
+  opacity: .96;
+}
+
+.play-icon {
+  color: white;
+  font-size: 100px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
 
 /***** CONTAINERS ******/
+.input-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  background: #424242;
 
+}
 .components-container {
   display: flex;
   justify-content: center;
   flex-direction: row;
 }
 .card-container {
-  padding-right: 2rem;
-  /*width: 20%;*/
+  padding: 0 2rem;
 }
 .table-container {
   display: flex;

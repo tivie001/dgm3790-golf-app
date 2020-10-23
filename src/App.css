@@ -1,9 +1,12 @@
 .App {
-  /*text-align: center;*/
   color: #fff;
-  background-color: #006445;
+  background-image: url("./assets/record.jpg");
+  min-height: 1000px;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
-
+.app-style {
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
