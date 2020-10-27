@@ -48,7 +48,7 @@ const Login = () => {
                         To access this web app please enter your email address and password! Please enjoy some tunes!
                     </DialogContentText>
                     <Formik
-                        initialValues={{ firstName: 'Billy', email: 'billy@example.com', password: '123456789', submit: null }}
+                        initialValues={{ firstName: '', email: '', password: '', submit: null }}
                         validationSchema={Yup.object().shape({
                             firstName: Yup.string()
                                 .max(50, 'First name is too long (must be at most 50 characters)')
