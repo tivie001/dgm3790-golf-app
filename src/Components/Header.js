@@ -24,9 +24,7 @@ function Header() {
                     <Typography variant="h5">
                         Music App
                     </Typography>
-                    <Typography variant="h6">
-                        Tyler Ivie
-                    </Typography>
+                    <Typography variant="h6"></Typography>
                 </Toolbar>
             </AppBar>
         </ThemeProvider>
