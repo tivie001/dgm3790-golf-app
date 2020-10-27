@@ -1,4 +1,14 @@
+## Music Box :musical_note:
 ## FEATURES
-- Loaded golf data from the Sportsdata IO API https://sportsdata.io/. Data includes:
-    - Player leaderboard table view with player stats for the top 25 players in the world. 
-    - Card views of various course data (location, par #, total yardage, etc.) for upcoming tournaments. 
+----------------------------------------------------
+1. Initially opening the app one will be prompted to login in to the app using the following 
+credentials **(Login Context)** and will be validated using the tools Formik, Yup, & Material UI.
+- First Name (required, cannot be more than 50 characters)
+- Email Address (required, must be a valid email, cannot be more than 50 characters)
+- Password (required, must have more than 8 characters and less than 50)
+
+2. Once logged in, a user can search **(Search Context)** for any **artist, song, album** in the world, which then 
+results from the ### [iTunes Search API](https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/)
+will be displayed **(from the MusicData Context)**, viewed and song previewed on user interaction.
+
+* The useState, useContext hooks are used in all of the components/context providers. 
