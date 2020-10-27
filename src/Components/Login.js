@@ -17,20 +17,12 @@ import Alert from '@material-ui/lab/Alert';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 
-
-
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [firstName, setFirstName] = useState('');
 
     const loginContext = useLoginContext();
-    const loginHandler = () => {
-        setEmail(email);
-        setPassword(password);
-        loginContext.login();
-        loginContext.setEmail(email);
-        loginContext.setPassword(password);
-    }
     const [open, setOpen] = useState(true);
     const [collapseOpen, setCollapseOpen] = useState(true);
     const handleClose = () => {
@@ -56,8 +48,11 @@ const Login = () => {
                         To access this web app please enter your email address and password! Please enjoy some tunes!
                     </DialogContentText>
                     <Formik
-                        initialValues={{ email: 'foo@example.com', password: '12345678', submit: null }}
+                        initialValues={{ firstName: 'Billy', email: 'billy@example.com', password: '123456789', submit: null }}
                         validationSchema={Yup.object().shape({
+                            firstName: Yup.string()
+                                .max(50, 'First name is too long (must be at most 50 characters)')
+                                .required('First name is required'),
                             email: Yup.string()
                                 .email('Must be a valid email')
                                 .max(50)
@@ -69,7 +64,13 @@ const Login = () => {
                         })}
                         onSubmit={ (values, { setErrors, setStatus, setSubmitting }) => {
                             try {
-                                loginHandler()
+                                setEmail(email);
+                                setPassword(password);
+                                setFirstName(firstName);
+                                loginContext.login();
+                                loginContext.setEmail(values.email);
+                                loginContext.setPassword(values.password);
+                                loginContext.setFirstName(values.firstName);
                             } catch (err) {
                                 console.log(err);
                             }
@@ -84,6 +85,20 @@ const Login = () => {
                             handleSubmit,
                         }) => (
                             <form noValidate autoComplete='off' onSubmit={handleSubmit}>
+                                <TextField
+                                    margin="dense"
+                                    id="firstName"
+                                    label="First Name"
+                                    placeholder="Billy"
+                                    name="firstName"
+                                    onBlur={handleBlur}
+                                    onChange={handleChange}
+                                    value={values.firstName}
+                                    error={Boolean(touched.firstName && errors.firstName)}
+                                    helperText={touched.firstName && errors.firstName}
+                                    required
+                                    fullWidth
+                                />
                                 <TextField
                                     margin="dense"
                                     id="email"
@@ -114,9 +129,11 @@ const Login = () => {
                                     fullWidth
                                 />
                                 <DialogActions>
-                                    <Button onClick={loginHandler} type="submit" disabled={Boolean(
+                                    <Button onClick={handleSubmit} type="submit" disabled={Boolean(
+                                        errors.firstName ||
                                         errors.email ||
                                         errors.password ||
+                                        values.firstName === '' ||
                                         values.email === '' ||
                                         values.password === '')}>Login
                                     </Button>
@@ -143,7 +160,7 @@ const Login = () => {
                         </IconButton>
                     }
                 >
-                    Welcome, you have successfully logged in!
+                    Welcome {loginContext.firstName}, you have successfully logged in!
                 </Alert>
             </Collapse>
         </div>);

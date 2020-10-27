@@ -25,7 +25,7 @@ const Search = () => {
                 variant="outlined"
                 value={searchTerm}
                 onChange={(event) => {
-                    setSearchVal(event.target.value)
+                    setSearchVal(event.target.value);
                 }}
                 onKeyPress={(ev) => {
                     if (ev.key === 'Enter') {
