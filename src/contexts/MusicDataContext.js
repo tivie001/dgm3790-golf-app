@@ -10,16 +10,17 @@ const MusicDataContext = createContext({
 
 export const MusicDataProvider = (props) => {
     const [musicData, setMusicData] = useState([]);
-    const headers = {
-        'Access-Control-Allow-Origin': '*',
-    };
 
     const fetchMusicData = (searchTerm) => {
-        axios.get('https://itunes.apple.com/search', {headers}, {
+        axios.get('https://itunes.apple.com/search', {
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+            },
             params: {
                 country: "US",
                 term: searchTerm,
-            }
+            },
+
         }).then(res => {
             setMusicData ({
                 music: res.data.results
