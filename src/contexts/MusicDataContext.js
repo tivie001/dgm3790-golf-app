@@ -25,7 +25,6 @@ export const MusicDataProvider = (props) => {
             setMusicData ({
                 music: res.data.results
             })
-            res.header('Access-Control-Allow-Origin', "*")
         });
     }
 
