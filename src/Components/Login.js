@@ -23,7 +23,7 @@ const Login = () => {
     const [firstName, setFirstName] = useState('');
 
     const loginContext = useLoginContext();
-    const [open, setOpen] = useState(true);
+    const [open, setOpen] = useState(false);
     const [collapseOpen, setCollapseOpen] = useState(true);
     const handleClose = () => {
         setOpen(false);

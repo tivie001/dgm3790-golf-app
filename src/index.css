@@ -135,3 +135,14 @@ code {
   border-radius: 5px;
   margin: 1rem 0 .5rem 0;
 }
+
+/***** DRAWER COMPONENT STYLES ******/
+.link-styles {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+.link-styles:hover {
+  opacity: .5;
+  transition: .3s ease;
+}
