@@ -33,7 +33,7 @@ function Header() {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h5">
-                        Music App
+                        Entertainment App
                     </Typography>
                     <Typography variant="h6"></Typography>
                 </Toolbar>
@@ -47,7 +47,12 @@ function Header() {
                     </ListItem>
                     <ListItem>
                         <NavLink to='/music' className="link-styles" onClick={handleDrawerToggle}>
-                            Search Music
+                            Music
+                        </NavLink>
+                    </ListItem>
+                    <ListItem>
+                        <NavLink to='/movies' className="link-styles" onClick={handleDrawerToggle}>
+                            Movies
                         </NavLink>
                     </ListItem>
                 </List>

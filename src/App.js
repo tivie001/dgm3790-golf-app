@@ -2,6 +2,7 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import './App.css';
 import MusicTable from "./Components/MusicTable";
+import Movies from "./Components/Movies";
 import Header from "./Components/Header";
 import Home from "./Components/Home";
 import { ThemeProvider, createMuiTheme} from "@material-ui/core/styles";
@@ -12,6 +13,7 @@ import Login from "./Components/Login";
 
 const routes = [
     { path: '/music', Component: MusicTable},
+    { path: '/movies', Component: Movies},
     { path: '/', Component: Home}
 ]
 const theme = createMuiTheme({

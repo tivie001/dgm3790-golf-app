@@ -12,7 +12,6 @@ import {
 import {useMusicDataContext} from "../contexts/MusicDataContext";
 import Link from "@material-ui/core/Link";
 import {useSearchContext} from "../contexts/SearchContext";
-import {Route} from "react-router-dom";
 import Search from "./Search";
 
 
@@ -29,13 +28,11 @@ const MusicTable = () => {
         var d = new Date(date);
         return d.getFullYear();
     }
-
     return (
         <div>
             <Search/>
             {  musicContext.music.length !== 0 ?
                 <div className="components-container">
-
                     <div className="table-container">
                         <div>
                             <h1 className="table-heading">Showing Results for...{searchContext.searchTerm}</h1>
