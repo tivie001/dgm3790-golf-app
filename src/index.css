@@ -149,3 +149,8 @@ code {
   opacity: .5;
   transition: .3s ease;
 }
+
+/***** MOVIE COMPONENT STYLES ******/
+.movie-items-container {
+  margin: 0 2rem;
+}
