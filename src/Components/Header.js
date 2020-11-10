@@ -6,10 +6,12 @@ import {
     AppBar,
     Drawer,
     List,
-    ListItem,
-
+    ListItem, Divider, Icon,
 } from "@material-ui/core";
 import MenuIcon from '@material-ui/icons/Menu';
+import AlbumIcon from '@material-ui/icons/Album';
+import TheatersIcon from '@material-ui/icons/Theaters';
+import RadioIcon from '@material-ui/icons/Radio';
 import {createMuiTheme, ThemeProvider} from "@material-ui/core/styles";
 import {NavLink} from "react-router-dom";
 
@@ -38,8 +40,23 @@ function Header() {
                     <Typography variant="h6"></Typography>
                 </Toolbar>
             </AppBar>
-            <Drawer open={drawerOpen} onClose={handleDrawerToggle}>
-                <List>
+            <Drawer open={drawerOpen} onClose={handleDrawerToggle} className="drawer">
+
+                <h3 className="drawer-header">Entertainment App</h3>
+                <div className="icon-row">
+                    <Icon>
+                        <AlbumIcon />
+                    </Icon>
+                    <Icon>
+                        <TheatersIcon />
+                    </Icon>
+                    <Icon>
+                        <RadioIcon />
+                    </Icon>
+                </div>
+
+                <Divider/>
+                <List className="drawer">
                     <ListItem>
                         <NavLink to='/' className="link-styles" onClick={handleDrawerToggle}>
                             Home

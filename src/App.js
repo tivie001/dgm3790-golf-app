@@ -9,6 +9,7 @@ import { ThemeProvider, createMuiTheme} from "@material-ui/core/styles";
 import {SearchContextProvider} from "./contexts/SearchContext";
 import {MusicDataProvider} from "./contexts/MusicDataContext";
 import {LoginContextProvider} from "./contexts/LoginContext";
+import { CSSTransition } from 'react-transition-group'
 import Login from "./Components/Login";
 
 const routes = [
@@ -30,11 +31,22 @@ function App() {
                 <MusicDataProvider>
                     <SearchContextProvider>
                         <div className="App">
+                            <Header/>
                             {routes.map(({ path, Component }) => (
                                     <Route key={path} exact path={path}>
                                         {/*<Login/>*/}
-                                        <Header/>
-                                        <Component />
+                                        {({ match }) => (
+                                            <CSSTransition
+                                                in={match != null}
+                                                timeout={300}
+                                                classNames="page"
+                                                unmountOnExit
+                                            >
+                                                <div className="page">
+                                                    <Component />
+                                                </div>
+                                            </CSSTransition>
+                                        )}
                                     </Route>
                             ))}
                         </div>

@@ -140,6 +140,18 @@ code {
 }
 
 /***** DRAWER COMPONENT STYLES ******/
+.drawer {
+  width: 200px;
+}
+.drawer-header {
+  margin: 1rem 1rem .5rem 1rem;
+}
+.icon-row {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  margin-bottom: 1rem;
+}
 .link-styles {
   color: white;
   font-weight: bold;
@@ -153,4 +165,41 @@ code {
 /***** MOVIE COMPONENT STYLES ******/
 .movie-items-container {
   margin: 0 2rem;
+}
+
+/***** CSS TRANSITIONS STYLES ******/
+
+.container {
+  position: relative;
+}
+
+.page {
+  position: absolute;
+  left: 15px;
+  right: 15px;
+}
+
+.page-enter {
+  opacity: 0;
+  transform: scale(1.1);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.page-exit {
+  opacity: 1;
+  /*transform: scale(1);*/
+  transform: translate(100%);
+  transition-duration: 600ms;
+}
+
+.page-exit-active {
+  opacity: 0;
+  /*transform: scale(0.5);*/
+  transform: translate(-100%);
+  transition: opacity 300ms, transform 300ms;
 }

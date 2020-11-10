@@ -5,14 +5,10 @@ import {
     CardActionArea,
     CardMedia,
     Typography,
-    CardActions,
-    Button,
-    Grid,
-    IconButton, ListItem
+    Grid
 } from "@material-ui/core";
 import AppleMusicImg from '../assets/apple-music-note.jpg';
 import MovieImg from '../assets/movie.png';
-import PlayCircleFilledIcon from "@material-ui/icons/PlayCircleFilled";
 import {NavLink} from "react-router-dom";
 
 const Home = () => {
@@ -27,7 +23,7 @@ const Home = () => {
                                 <CardMedia
                                     component="img"
                                     alt="Apple Music Note Logo"
-                                    height="250"
+                                    height="335"
                                     image={AppleMusicImg}
                                     title="Apple Music Note Logo"
                                 />
@@ -50,7 +46,7 @@ const Home = () => {
                                 <CardMedia
                                     component="img"
                                     alt="Movie Logo"
-                                    height="250"
+                                    height="335"
                                     image={MovieImg}
                                     title="Movie Logo"
                                 />
@@ -59,7 +55,7 @@ const Home = () => {
                                         Movies
                                     </Typography>
                                     <Typography variant="body2" color="textSecondary" component="p">
-                                        Browse top movies in the entire iTunes Store Library here.
+                                        Browse a movie catalog provided by the entire iTunes Store Library here.
                                     </Typography>
                                 </CardContent>
                             </CardActionArea>
