@@ -10,16 +10,19 @@ import {
 } from "@material-ui/core";
 import {makeStyles} from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
-    root: {
-        display: 'flex',
-        minHeight: 200
-    },
+    // root: {
+    //     display: 'flex',
+    //     maxHeight: 175
+    // },
     details: {
         display: 'flex',
         flexDirection: 'column',
     },
     content: {
         flex: '1 0 auto',
+    },
+    title: {
+        fontSize: 18,
     },
     cover: {
         minWidth: 151,
@@ -33,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
     playIcon: {
         height: 38,
         width: 38,
-    },
+    }
 }));
 
 
@@ -74,7 +77,7 @@ const Movies = () => {
                 {
                     movieData.map((movie) => (
                         <Grid item xs={12} md={3} key={movie.trackId}>
-                            <Card className={classes.root}>
+                            <Card className="movie-card">
                                 <CardMedia
                                     className={classes.cover}
                                     image={movie.artworkUrl100}
@@ -83,7 +86,7 @@ const Movies = () => {
                                 <CardActionArea>
                                     <div className={classes.details}>
                                         <CardContent className={classes.content}>
-                                            <Typography component="h5" variant="h5">
+                                            <Typography className={classes.title}>
                                                 {movie.trackName}
                                             </Typography>
                                             <Typography variant="subtitle1" color="textSecondary">
