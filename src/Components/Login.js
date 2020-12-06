@@ -1,7 +1,8 @@
 import React, {useState} from "react";
 import {
     IconButton,
-    TextField
+    TextField,
+    Grid
 } from "@material-ui/core";
 import { useLoginContext } from "../contexts/LoginContext";
 import Button from "@material-ui/core/Button";
@@ -16,18 +17,24 @@ import Collapse from "@material-ui/core/Collapse";
 import Alert from '@material-ui/lab/Alert';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Login = () => {
+    const loginContext = useLoginContext();
+    const { loginWithRedirect } = useAuth0();
+    const { user } = useAuth0();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [firstName, setFirstName] = useState('');
-
-    const loginContext = useLoginContext();
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(true);
     const [collapseOpen, setCollapseOpen] = useState(true);
+
     const handleClose = () => {
         setOpen(false);
     };
+    if (user) {
+        loginContext.isAuth = true;
+    }
 
     return !loginContext.isAuth ? (
             <Dialog
@@ -128,22 +135,39 @@ const Login = () => {
                                     required
                                     fullWidth
                                 />
-                                <DialogActions>
-                                    <Button onClick={handleSubmit} type="submit" disabled={Boolean(
-                                        errors.firstName ||
-                                        errors.email ||
-                                        errors.password ||
-                                        values.firstName === '' ||
-                                        values.email === '' ||
-                                        values.password === '')}>Login
-                                    </Button>
+                                <DialogActions className="login-btns">
+                                    <Grid
+                                        justify="space-between"
+                                        container
+                                    >
+                                        <Grid item>
+                                            <Button onClick={() => loginWithRedirect()} type="button" variant="contained">
+                                                Login with Auth0
+                                            </Button>
+                                        </Grid>
+                                        <Grid item>
+                                            <div>
+                                                <Button variant="contained" color="primary" onClick={handleSubmit} type="submit" disabled={Boolean(
+                                                    errors.firstName ||
+                                                    errors.email ||
+                                                    errors.password ||
+                                                    values.firstName === '' ||
+                                                    values.email === '' ||
+                                                    values.password === '')}>
+                                                    Login
+                                                </Button>
+                                            </div>
+                                        </Grid>
+                                    </Grid>
+                                    <div className="login-btns">
+                                    </div>
                                 </DialogActions>
                             </form>
                         )}
                     </Formik>
                 </DialogContent>
             </Dialog>
-    ) : (<div>
+    ) : ( !user ? <div>
             <Collapse in={collapseOpen}>
                 <Alert
                     severity="success"
@@ -163,7 +187,7 @@ const Login = () => {
                     Welcome {loginContext.firstName}, you have successfully logged in!
                 </Alert>
             </Collapse>
-        </div>);
+        </div> : "");
 }
 
 export default Login;

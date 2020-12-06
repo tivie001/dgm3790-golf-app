@@ -31,10 +31,10 @@ function App() {
                 <MusicDataProvider>
                     <SearchContextProvider>
                         <div className="App">
+                            <Login/>
                             <Header/>
                             {routes.map(({ path, Component }) => (
                                     <Route key={path} exact path={path}>
-                                        {/*<Login/>*/}
                                         {({ match }) => (
                                             <CSSTransition
                                                 in={match != null}

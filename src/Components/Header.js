@@ -14,6 +14,8 @@ import TheatersIcon from '@material-ui/icons/Theaters';
 import RadioIcon from '@material-ui/icons/Radio';
 import {createMuiTheme, ThemeProvider} from "@material-ui/core/styles";
 import {NavLink} from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
+
 
 function Header() {
     const theme = createMuiTheme({
@@ -22,6 +24,8 @@ function Header() {
         }
     })
     const [drawerOpen, setDrawerOpen] = useState(false)
+    const { user } = useAuth0();
+    // console.log(user);
 
     const handleDrawerToggle = () => {
         setDrawerOpen(!drawerOpen)
@@ -34,10 +38,19 @@ function Header() {
                     <IconButton edge="start" color="inherit" aria-label="menu" onClick={handleDrawerToggle}>
                         <MenuIcon />
                     </IconButton>
-                    <Typography variant="h5">
+                    <Typography variant="h4">
                         Entertainment App
                     </Typography>
-                    <Typography variant="h6"></Typography>
+                    <Typography variant="h6">
+                        <div className="profile-info">
+                            {
+                                user ? 'Welcome, ' + user.name : ""
+                            }
+                            {
+                                user ? <img className="profile-img" src={user.picture} alt={user.name}/> : ""
+                            }
+                        </div>
+                    </Typography>
                 </Toolbar>
             </AppBar>
             <Drawer open={drawerOpen} onClose={handleDrawerToggle} className="drawer">

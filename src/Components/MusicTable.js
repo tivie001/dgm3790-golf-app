@@ -7,8 +7,7 @@ import {
     TableContainer,
     TableHead,
     TableRow,
-    IconButton,
-    CircularProgress
+    IconButton
 } from "@material-ui/core";
 import {useMusicDataContext} from "../contexts/MusicDataContext";
 import Link from "@material-ui/core/Link";
