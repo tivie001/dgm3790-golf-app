@@ -8,6 +8,8 @@ import {
     List,
     ListItem, Divider, Icon,
 } from "@material-ui/core";
+
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import MenuIcon from '@material-ui/icons/Menu';
 import AlbumIcon from '@material-ui/icons/Album';
 import TheatersIcon from '@material-ui/icons/Theaters';
@@ -25,6 +27,7 @@ function Header() {
     })
     const [drawerOpen, setDrawerOpen] = useState(false)
     const { user } = useAuth0();
+    const { logout } = useAuth0();
     // console.log(user);
 
     const handleDrawerToggle = () => {
@@ -49,6 +52,15 @@ function Header() {
                             {
                                 user ? <img className="profile-img" src={user.picture} alt={user.name}/> : ""
                             }
+                            <div className="logout-btn">
+                                <IconButton edge="start" color="inherit" aria-label="menu" onClick={() =>
+                                    logout({
+                                        returnTo: window.location.origin,
+                                    })
+                                }>
+                                    <ExitToAppIcon />
+                                </IconButton>
+                            </div>
                         </div>
                     </Typography>
                 </Toolbar>

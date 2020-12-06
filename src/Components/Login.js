@@ -18,21 +18,27 @@ import Alert from '@material-ui/lab/Alert';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { useAuth0 } from "@auth0/auth0-react";
+import {useHistory} from "react-router-dom";
+
+
 
 const Login = () => {
     const loginContext = useLoginContext();
     const { loginWithRedirect } = useAuth0();
-    const { user } = useAuth0();
+    const { user, isAuthenticated } = useAuth0();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [firstName, setFirstName] = useState('');
     const [open, setOpen] = useState(true);
     const [collapseOpen, setCollapseOpen] = useState(true);
+    const history = useHistory();
 
     const handleClose = () => {
         setOpen(false);
     };
+    console.log(isAuthenticated);
     if (user) {
+        console.log(history);
         loginContext.isAuth = true;
     }
 
