@@ -1,4 +1,4 @@
-## Entertainment App :musical_note:
+## Entertainment App :musical_note: :clapper: :radio:
 ## MAIN FEATURES:
 ----------------------------------------------------
 1. Music API
@@ -19,7 +19,7 @@
     
 ## Requirements:
 ----------------------------------------------------
-Effectively use conditional logic and JavaScript array methods(e.g. Filter, Map, Reduce, Find) to render large lists.
+***Effectively use conditional logic and JavaScript array methods(e.g. Filter, Map, Reduce, Find) to render large lists.***
 - I used conditional info to display the login dialog box in **Login.js**.
 - I used JS array methods like **Map** in **MusicTable.js** and **Movies.js** to render long list of data from the API.
 Encapsulate your code as React functional components.
