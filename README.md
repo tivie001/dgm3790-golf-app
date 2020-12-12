@@ -68,5 +68,6 @@ for all my data.
     - **useEffect** - I used this hook once in the Movies.js component.
     
 ***Structure, document, and deploy your final project code according to common industry practices.***
-**GITHUB URL:**  [My GitHub URL](https://github.com/tivie001/dgm3790-music-app)
-**NETLIFY URL (Entertainment App):** [Entertainment App Netlify Url](https://relaxed-heisenberg-aec243.netlify.app/)
+## GITHUB URL:  [My GitHub URL](https://github.com/tivie001/dgm3790-music-app)
+
+## NETLIFY URL (Entertainment App): [Entertainment App Netlify Url](https://relaxed-heisenberg-aec243.netlify.app/)
