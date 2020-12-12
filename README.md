@@ -17,7 +17,7 @@
         Google profile picture if they have one/chose to log in using Google.
         - When done with the app a user can click logout by clicking the exit icon in the top right corner.
     
-## Requirements:
+## REQUIREMENTS:
 ----------------------------------------------------
 ***Effectively use conditional logic and JavaScript array methods(e.g. Filter, Map, Reduce, Find) to render large lists.***
 - I used conditional info to display the login dialog box in **Login.js**.
