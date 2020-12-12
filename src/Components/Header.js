@@ -28,7 +28,6 @@ function Header() {
     const [drawerOpen, setDrawerOpen] = useState(false)
     const { user } = useAuth0();
     const { logout } = useAuth0();
-    // console.log(user);
 
     const handleDrawerToggle = () => {
         setDrawerOpen(!drawerOpen)

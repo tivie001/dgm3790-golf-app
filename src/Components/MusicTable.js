@@ -18,7 +18,6 @@ import Search from "./Search";
 const MusicTable = () => {
     const musicContext = useMusicDataContext();
     const searchContext = useSearchContext();
-    // searchContext.loader(false)
 
     function millisToMinutesAndSeconds(millis) {
         let minutes = Math.floor(millis / 60000);
@@ -34,7 +33,6 @@ const MusicTable = () => {
             <Search/>
             { musicContext.music.length !== 0 ?
                 <div className="components-container">
-                    {/*{ searchContext.isLoaded ? <CircularProgress />: ''}*/}
                     <div className="table-container">
                         <div>
                             <h1 className="table-heading">Showing Results for...{searchContext.searchTerm}</h1>
